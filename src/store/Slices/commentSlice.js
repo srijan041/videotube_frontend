@@ -20,7 +20,7 @@ export const createAComment = createAsyncThunk(
             });
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }
@@ -37,7 +37,7 @@ export const editAComment = createAsyncThunk(
             toast.success(response.data?.message);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }
@@ -54,7 +54,7 @@ export const deleteAComment = createAsyncThunk(
             console.log(response.data.data);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }
@@ -71,7 +71,7 @@ export const getVideoComments = createAsyncThunk(
             const response = await axiosInstance.get(url);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }

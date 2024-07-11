@@ -25,7 +25,7 @@ export const createAccount = createAsyncThunk("register", async (data) => {
         toast.success("Registered successfully!!!");
         return response.data;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        toast.error(error?.response?.data?.message);
         throw error;
     }
 });
@@ -35,7 +35,13 @@ export const userLogin = createAsyncThunk("login", async (data) => {
         const response = await axiosInstance.post("/users/login", data);
         return response.data.data.user;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        // const regex = /Error: (.*?)<br>/;
+        // const match = regex.exec(error?.response?.data);
+        // const toastMessage = match[1]
+        // console.log(match[1]);
+        // console.log(error?.response?.data?.message);
+        toast.error(error?.response?.data?.message);
+        // toast.error(toastMessage);
         throw error;
     }
 });
@@ -46,7 +52,7 @@ export const userLogout = createAsyncThunk("logout", async () => {
         toast.success(response.data?.message);
         return response.data;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        toast.error(error?.response?.data?.message);
         throw error;
     }
 });
@@ -61,7 +67,7 @@ export const refreshAccessToken = createAsyncThunk(
             );
             return response.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }
@@ -78,7 +84,7 @@ export const changePassword = createAsyncThunk(
             toast.success(response.data?.message);
             return response.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }
@@ -98,7 +104,7 @@ export const updateAvatar = createAsyncThunk("updateAvatar", async (avatar) => {
         toast.success("Updated details successfully!!!");
         return response.data.data;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        toast.error(error?.response?.data?.message);
         throw error;
     }
 });
@@ -114,7 +120,7 @@ export const updateCoverImg = createAsyncThunk(
             toast.success(response.data?.message);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }
@@ -131,7 +137,7 @@ export const updateUserDetails = createAsyncThunk(
             toast.success("Updated details successfully!!!");
             return response.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }

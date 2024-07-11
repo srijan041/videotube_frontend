@@ -13,7 +13,7 @@ export const createTweet = createAsyncThunk("createTweet", async (content) => {
         toast.success(response.data?.message);
         return response.data.data;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        toast.error(error?.response?.data?.message);
         throw error;
     }
 });
@@ -24,12 +24,12 @@ export const editTweet = createAsyncThunk(
         try {
             const response = await axiosInstance.patch(
                 `/tweets/${tweetId}`,
-                {content}
+                { content }
             );
             toast.success(response.data.message);
             return response.data.data;
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error(error?.response?.data?.message);
             throw error;
         }
     }
@@ -41,20 +41,20 @@ export const deleteTweet = createAsyncThunk("deleteTweet", async (tweetId) => {
         toast.success(response.data.message);
         return response.data.data.tweetId;
     } catch (error) {
-        toast.error(error?.response?.data?.error);
+        toast.error(error?.response?.data?.message);
         throw error;
     }
 });
 
-export const getUserTweets = createAsyncThunk( "getUserTweets", async (username) => {
-        try {
-            const response = await axiosInstance.get(`/tweets/user/${username}`);
-            return response.data.data;
-        } catch (error) {
-            toast.error(error?.response?.data?.error);
-            throw error;
-        }
+export const getUserTweets = createAsyncThunk("getUserTweets", async (username) => {
+    try {
+        const response = await axiosInstance.get(`/tweets/user/${username}`);
+        return response.data.data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message);
+        throw error;
     }
+}
 );
 
 const tweetSlice = createSlice({
@@ -62,7 +62,7 @@ const tweetSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase( getUserTweets.pending, (state) => {
+        builder.addCase(getUserTweets.pending, (state) => {
             state.loading = true;
         }
         );
@@ -79,6 +79,6 @@ const tweetSlice = createSlice({
     },
 });
 
-export const {addTweet} = tweetSlice.actions;
+export const { addTweet } = tweetSlice.actions;
 
 export default tweetSlice.reducer;
