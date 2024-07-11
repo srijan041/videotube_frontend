@@ -5,7 +5,7 @@ import TogglePublish from "../TogglePublish";
 function VideoTable({ videos, setPopUp, setVideoDetails }) {
   return (
     <>
-      <section className="mx-auto w-full overflow-x-scroll">
+      <section className="mx-auto w-full overflow-x-auto">
         <table className="min-w-full border border-slate-500">
           <thead>
             <tr>
@@ -13,7 +13,7 @@ function VideoTable({ videos, setPopUp, setVideoDetails }) {
                 Toggle Publish
               </th>
               <th className="py-2 px-4 border-b border-slate-500">Status</th>
-              <th className="py-2 px-4 border-b border-slate-500">Uploaded</th>
+              <th className="py-2 px-4 border-b border-slate-500">Title</th>
               <th className="py-2 px-4 border-b border-slate-500">Rating</th>
               <th className="py-2 px-4 border-b border-slate-500">
                 Date Uploaded
