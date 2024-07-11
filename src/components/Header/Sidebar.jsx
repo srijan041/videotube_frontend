@@ -109,10 +109,10 @@ function Sidebar() {
                 <span className="text-base hidden md:block">Logout</span>
               </div>
             )}
-            <div className="flex items-center gap-2 justify-center sm:justify-start hover:bg-blue-500 cursor-pointer py-1 px-2 border border-slate-600">
+            {/* <div className="flex items-center gap-2 justify-center sm:justify-start hover:bg-blue-500 cursor-pointer py-1 px-2 border border-slate-600">
               <CiSettings size={25} />
               <span className="text-base hidden md:block">Settings</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -108,7 +108,7 @@ export const updateCoverImg = createAsyncThunk(
     async (coverImage) => {
         try {
             const response = await axiosInstance.patch(
-                "/users/update-coverImg",
+                "/users/update-coverImage",
                 coverImage
             );
             toast.success(response.data?.message);
