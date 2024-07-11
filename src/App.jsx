@@ -32,10 +32,7 @@ function App() {
     return (
         <>
             <Routes>
-                <Route
-                    path="/"
-                    element={<Layout />}
-                >
+                <Route path="/" element={<Layout />}>
                     <Route
                         path=""
                         element={
@@ -110,6 +107,14 @@ function App() {
                         }
                     />
                     <Route
+                        path="/collections"
+                        element={
+                            <AuthLayout authentication>
+                                <AdminDashboard />
+                            </AuthLayout>
+                        }
+                    />
+                    <Route
                         path="/subscriptions"
                         element={
                             <AuthLayout authentication>
@@ -167,14 +172,7 @@ function App() {
                         </AuthLayout>
                     }
                 />
-                <Route
-                    path="/collections"
-                    element={
-                        <AuthLayout authentication>
-                            <AdminDashboard />
-                        </AuthLayout>
-                    }
-                />
+
                 <Route
                     path="/terms&conditions"
                     element={
