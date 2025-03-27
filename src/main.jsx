@@ -5,7 +5,6 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from "./store/store.js";
-import { Analytics } from '@vercel/analytics/next';
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -13,6 +12,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <BrowserRouter>
             <App />
         </BrowserRouter>
-        <Analytics />
     </Provider>
 );

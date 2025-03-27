@@ -22,6 +22,9 @@ import {
 } from "./pages";
 import { EditPersonalInfo, ChangePassword, Layout } from "./components";
 
+import { Analytics } from '@vercel/analytics/react';
+
+
 function App() {
     const dispatch = useDispatch();
 
@@ -196,6 +199,7 @@ function App() {
                     duration: 2000,
                 }}
             />
+            <Analytics />
         </>
     );
 }
